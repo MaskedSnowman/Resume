@@ -281,16 +281,28 @@ h1 {
 }
 
 .header-box {
-  background: url("../img/golden.jpg") center/cover no-repeat;
+  /* background: url("../img/Particles_47___45s___4k_res.mp4") center/cover */
+  /* no-repeat; */
+  position: relative;
   display: flex;
   color: white;
   background-color: grey;
   min-height: 400px;
 }
+.header-box video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
 .text-side {
   left: 0;
   width: 75%;
   margin-left: 50px;
+  z-index: 1;
 }
 .text-side h1 {
   white-space: nowrap;
