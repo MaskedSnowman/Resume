@@ -1,0 +1,783 @@
+@import "compass";
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+:root {
+  --main-color: #24242f;
+  --secondary-color: #f9c102;
+  --background-color: #1e1e29;
+  --circle-width: 0.09em;
+  --glow-color: #f9c102;
+  --glow-spread-color: rgba(249, 193, 2, 0.5);
+  --enhanced-glow-color: rgba(255, 238, 170, 0.7);
+  --btn-color: #4a4a4a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+  color: grey;
+  background-color: var(--background-color);
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: var(--secondary-color);
+}
+.Ahmed {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.Ahmed::-webkit-scrollbar {
+  display: none;
+}
+
+.split {
+  height: 99%;
+  flex: 1;
+  position: relative;
+}
+
+.Left-Column {
+  width: 20%;
+  height: 99%;
+
+  background-color: var(--background-color);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.Right-Column {
+  flex: 0 0 80%;
+  height: 99%;
+  max-width: 80%;
+  margin-left: 20%; /* Same width as .Left-Column */
+}
+
+.social-links {
+  display: flex;
+  gap: 10px;
+  background-color: #242434;
+  width: 100%;
+  align-items: center;
+  justify-content: center; /* Aligns the links to the right */
+  padding: 10px; /* Adds some spacing around the links */
+  position: absolute; /* Allows placement at the bottom of the parent */
+  /* bottom: 0; Positions the element at the bottom */
+  left: 0; /* Ensures it stretches across the entire width */
+}
+.social-links i {
+  font-size: 1.7em;
+  color: #7b7b85; /* Ensure color consistency */
+}
+
+.intro-box {
+  /* margin-top: 40px; */
+  /* display: flex; */
+  align-items: center;
+  text-align: center;
+  /* padding: 10px; */
+  color: grey;
+  /* background-color: var(--main-color); */
+  background-color: #242434;
+
+  padding: 10px;
+}
+
+.intro-box h2 {
+  color: white;
+  margin: 0;
+}
+.intro-box h3 {
+  margin: 5px;
+}
+
+.info-box {
+  padding: 10px 0;
+}
+.info-box .container::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 1px;
+  background-color: grey;
+  width: calc(100% - 10%);
+}
+.info-box li {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.left-span {
+  color: white;
+}
+
+.right-span {
+  color: grey;
+}
+
+.language-box::after {
+  content: "";
+  height: 1px;
+  background-color: grey;
+  position: absolute;
+  width: calc(100% - 10%);
+  transform: translateX(-50%);
+  left: 50%;
+}
+.language-box .container {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+}
+
+.language-box .language {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.language-box .language .percent {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.language-box .language svg {
+  transform: rotate(-90deg);
+}
+
+.language-box .language circle {
+  fill: none;
+  stroke-width: 6;
+}
+
+.language-box .circle-background {
+  stroke: black;
+}
+
+.language-box .circle-progress {
+  stroke: var(--secondary-color);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s ease-out;
+}
+
+.language-box .number {
+  position: absolute;
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.language-box h2 {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.code-box {
+  padding: 10px 0;
+}
+
+.code-box .skills {
+  margin-bottom: 10px;
+}
+.code-box h3 {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  margin: 0;
+}
+.code-box .progress-bar {
+  height: 5px;
+  background-color: var(--main-color);
+  position: relative;
+}
+.code-box .progress-bar span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: var(--secondary-color);
+  /* animation: fillUp 2s ease-in-out forwards; */
+}
+
+@keyframes fillUp {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--progress-width);
+  }
+}
+
+.code-box .skills-container::after {
+  content: "";
+  position: absolute;
+  width: calc(100% - 10%);
+  background-color: grey;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 1px;
+}
+
+.frame-box {
+  padding: 10px 0;
+}
+.frame-box ul li:before {
+  content: "✓";
+  color: var(--secondary-color);
+  padding-right: 5px;
+}
+.frame-box li {
+  padding-bottom: 5px;
+}
+
+.cv-box {
+  padding: 10px 0;
+  display: flex;
+}
+.cv-box a {
+  color: white;
+  text-decoration: none;
+}
+
+.cv-box h3 {
+  transition: color 0.7s;
+}
+.cv-box h3:hover {
+  color: var(--secondary-color);
+}
+
+.header-box {
+  background: url("../img/golden.jpg") center/cover no-repeat;
+  display: flex;
+  color: white;
+  background-color: grey;
+  min-height: 400px;
+}
+.text-side {
+  left: 0;
+  width: 75%;
+  margin-left: 50px;
+}
+.text-side h1 {
+  white-space: nowrap;
+  font-size: 70px;
+  display: inline-block;
+  color: white;
+}
+
+.photo-side {
+  right: 0;
+  width: 25%;
+  margin-right: 50px;
+}
+
+.header-box .photo-side img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.header-box .code {
+  color: var(--secondary-color);
+}
+.header-box .blinkText {
+  position: relative;
+  top: 50%;
+  width: 24em;
+  margin: 0 auto;
+  border-right: 2px solid rgba(255, 255, 255, 0.75);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  transform: translateY(-50%);
+  animation: typewriter 4s steps(44) 1s 1 normal both,
+    blinkTextCursor 500ms steps(44) infinite normal;
+}
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 24em;
+  }
+}
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: rgba(255, 255, 255, 0.75);
+  }
+  to {
+    border-right-color: transparent;
+  }
+}
+
+.header-box .funButton button {
+  --glow-color: #f9c102; /* Primary color */
+  --glow-spread-color: rgba(249, 193, 2, 0.5); /* Softer glow variation */
+  --enhanced-glow-color: rgba(
+    255,
+    238,
+    170,
+    0.7
+  ); /* Enhanced glow for contrast */
+  --btn-color: #4a4a4a; /* A neutral dark gray that pairs well */
+  border: 0.25em solid var(--glow-color);
+  padding: 1em 3em;
+  color: var(--glow-color);
+  font-size: 15px;
+  font-weight: bold;
+  background-color: var(--btn-color);
+  border-radius: 1em;
+  outline: none;
+  box-shadow: 0 0 1em 0.25em var(--glow-color),
+    0 0 4em 1em var(--glow-spread-color),
+    inset 0 0 0.75em 0.25em var(--glow-color);
+  text-shadow: 0 0 0.5em var(--glow-color);
+  position: relative;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.header-box .funButton button:hover {
+  color: var(--btn-color);
+  background-color: var(--glow-color);
+  box-shadow: 0 0 1em 0.25em var(--glow-color),
+    0 0 4em 2em var(--glow-spread-color),
+    inset 0 0 0.75em 0.25em var(--glow-color);
+}
+
+.header-box .funButton button:active {
+  box-shadow: 0 0 0.6em 0.25em var(--glow-color),
+    0 0 2.5em 2em var(--glow-spread-color),
+    inset 0 0 0.5em 0.25em var(--glow-color);
+}
+
+.About h1 {
+  font-size: 40px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.About h1:hover {
+  color: black;
+}
+.About p {
+  font-size: 20px;
+  color: white;
+}
+.About .container.content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.2s ease-in-out;
+}
+.About .container.content.show {
+  max-height: 1000px;
+}
+
+.Projects {
+  text-align: center;
+}
+.Projects h1 {
+  text-align: left;
+  cursor: pointer;
+  transition: box-shadow 0.3s, color 0.3s;
+}
+.Projects h1:hover {
+  color: black;
+}
+.Projects .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.Projects .container.content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease-in-out;
+}
+.Projects .container.content.show {
+  max-height: 1000px;
+}
+
+.Projects .project {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1 solid rgba(255, 255, 255, 0.1);
+  flex: none;
+  width: calc(33.333% - 20px);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: left;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.Projects .project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.Projects .project h2 {
+  font-size: 20px;
+  color: white;
+  margin-bottom: 10px;
+}
+.Projects .project p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.533);
+  line-height: 1.6;
+  padding-bottom: 20px;
+}
+.Projects .project a {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--secondary-color);
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: color 0.3s;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.Projects .project a:hover {
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .Projects .project {
+    width: 100%;
+  }
+  .Projects .container {
+    justify-content: space-between;
+  }
+}
+
+.Experiences {
+  text-align: center;
+}
+.Experiences h1 {
+  text-align: left;
+  cursor: pointer;
+  transition: box-shadow 0.3s, color 0.3s;
+}
+.Experiences h1:hover {
+  color: black;
+}
+.Experiences .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.Experiences .container.content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease-in-out;
+}
+.Experiences .container.content.show {
+  max-height: 1000px;
+}
+.Experiences .experience {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1 solid rgba(255, 255, 255, 0.1);
+  width: calc(33.333% - 20px);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: left;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+}
+.Experiences .experience:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.Experiences .experience h2 {
+  font-size: 20px;
+  color: white;
+  margin-bottom: 10px;
+}
+.Experiences .experience p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.533);
+  line-height: 1.6;
+  padding-bottom: 20px;
+}
+.Experiences .experience a {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--secondary-color);
+  position: absolute;
+  bottom: 20px;
+  left: 20;
+  transition: color 0.3s;
+}
+.Experiences .experience a:hover {
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .Experiences .experience {
+    width: 100%;
+  }
+  .Experiences .container {
+    justify-content: space-between;
+  }
+}
+
+.Courses {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.Courses h1 {
+  text-align: left;
+  cursor: pointer;
+  transition: box-shadow 0.3s, color 0.3s;
+}
+.Courses h1:hover {
+  color: black;
+}
+.Courses .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.Courses .container.content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease-in-out;
+}
+.Courses .container.content.show {
+  max-height: 1000px;
+}
+.Courses .course {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1 solid rgba(255, 255, 255, 0.1);
+  width: calc(33.333% - 20px);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+.Courses .course:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.Courses .course h2 {
+  font-size: 20px;
+  color: white;
+  margin-bottom: 10px;
+}
+.Courses .course p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.533);
+  line-height: 1.6;
+  padding-bottom: 20px;
+}
+.Courses .course a {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--secondary-color);
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: color 0.3s;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}
+.Courses .course a:hover {
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .Courses .course {
+    width: 100%;
+  }
+  .Courses .container {
+    justify-content: space-between;
+  }
+}
+
+.project-flip-container {
+  width: 100%;
+  height: 300px;
+  perspective: 1000px;
+  position: relative;
+}
+
+.project-front,
+.project-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.project-front {
+  box-sizing: border-box;
+}
+
+.project-back {
+  background-color: var(--background-color);
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.project-flip-container:hover .project-front {
+  transform: rotateY(180deg);
+}
+
+.project-flip-container:hover .project-back {
+  transform: rotateY(360deg);
+}
+
+.project-back i {
+  font-size: 50px;
+  color: #ff5733;
+}
+
+.scroll-up {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.scroll-up.show {
+  display: block;
+  opacity: 1;
+}
+
+.scroll-up .button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 0px 4px var(--main-color);
+  cursor: pointer;
+  transition: all 0.3s;
+  overflow: hidden;
+  position: relative;
+}
+
+.scroll-up .svgIcon {
+  width: 12px;
+  transition: transform 0.3s;
+}
+
+.scroll-up .svgIcon path {
+  fill: var(--secondary-color);
+}
+
+.scroll-up .button:hover {
+  width: 140px;
+  border-radius: 50px;
+  background-color: var(--main-color);
+  box-shadow: 0px 0px 0px 4px var(--secondary-color);
+}
+
+.scroll-up .button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: black;
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 0px 4px var(--glow-color);
+  cursor: pointer;
+  transition: all 0.3s;
+  overflow: hidden;
+  position: relative;
+}
+
+.scroll-up .svgIcon {
+  width: 12px;
+  transition: transform 0.3s;
+}
+
+.scroll-up .svgIcon path {
+  fill: white;
+}
+
+.scroll-up .button:hover {
+  width: 140px;
+  border-radius: 50px;
+  background-color: black;
+}
+
+.scroll-up .button:hover .svgIcon {
+  transform: translateY(-200%);
+}
+
+.scroll-up .button::before {
+  position: absolute;
+  content: "Back to Top";
+  color: var(--glow-color);
+  font-size: 0px;
+  transition: all 0.3s;
+}
+
+.scroll-up .button:hover::before {
+  font-size: 13px;
+  opacity: 1;
+}
+
+.collapsible-content {
+  display: none;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+.collapsible-content.active {
+  display: block;
+}
