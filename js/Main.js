@@ -71,24 +71,7 @@ window.onload = function () {
 //   });
 // });
 
-function toggleSection(header) {
-  const content = header.nextElementSibling;
-  content.classList.toggle("show");
-}
-const scrollUpButton = document.getElementById("scrollUpButton");
-const scrollTriggerPoint = 300;
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > scrollTriggerPoint) {
-    scrollUpButton.classList.add("show");
-  } else {
-    scrollUpButton.classList.remove("show");
-  }
-});
-
-scrollUpButton.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-});
+// function toggleSection(header) {
+//   const content = header.nextElementSibling;
+//   content.classList.toggle("show");
+// }
